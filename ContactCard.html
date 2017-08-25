@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>ContactCard</title>
+	<link rel="stylesheet" type="text/css" href="Contact.css">
+	<script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+	<script>
+		$(document).ready(function(){
+            $('.description').fadeOut(0,0);
+            $('form').on('submit', function(){
+
+                var string = "";
+                var fullName = $("#firstname").val() + " " + $("#lastname").val() ;     
+                var description = $("#description").val();
+
+                string += '<div class="contactcard">';
+                string += '<p class="fullname">' + fullName + '</p>';
+                string += '<p class="description">' + description + '</p>';
+                string += '</div>';
+
+                $('#cardSide').append(string);
+
+    
+                return false;
+            });
+            
+            // $('.contactcard').click(function(){
+            //     $('.fullname').fadeOut(0,0);
+            //     $('.description').fadeIn(0,1);
+            //     console.log("adsasd");
+            // });
+		
+		});
+        $(document).on('click',this,function(){
+                
+                $('.fullname').fadeOut(0,0);
+                $('.description').fadeIn(0,1);
+                console.log("adsasd");
+           
+        });
+
+	</script>
+</head>
+<body>
+   
+    <div id="wrapper">
+        <div id="formSide">             
+            <form id="form1" action="process.php" method='post'>
+                First Name <input id="firstname" type="text" name='first_name'>
+                Last Name <input id="lastname" type="text" name='last_name'>
+                Description <input id="description" type="usrform" name="description">
+                <input type="submit" value="submit!">
+            </form>
+        </div>
+        <div id="cardSide">
+            <div class="contactcard">
+                <p class="fullname">First+Last Name Here</p>
+                <p class="description">Description Here. Lorum Ipsum, derp derp</p>
+                
+            </div>
+ 
+        
+        <!-- <div id="table">   
+            <table id="table1" style="width:100%">
+                <tbody>   
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th> 
+                        <th>Description:</th>
+                    </tr>
+                    <tr>
+                        <td>Jill</td>
+                        <td>Smith</td> 
+                        <td>jsmith@gmail.com</td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div> -->
+    </div>
+</body>
+</html>
